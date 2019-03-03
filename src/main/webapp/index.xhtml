@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Insert title here</title>
+</head>
+<h:body>
+
+
+
+	<h:form id="TestForm">
+
+
+		<p:panel>
+			<h:panelGrid columns="4" cellpadding="5">				
+
+				<p:outputLabel for="txt1" value="Name: " />
+				<p:inputText id="txt1" value="#{customerCtr.customer.name}"
+					 />
+				<p:message for="txt1" />
+                <h:outputText value="#{customerCtr.customer.name}" />
+					
+					
+					
+
+				<p:outputLabel for="date2" value="birthdate " />
+				<p:calendar mode="popup" pattern="dd/mm/yy" id="date2" value="#{customerCtr.customer.birthdate}" showOn="button"  />
+	            <p:message for="date2" />
+                <h:outputText value="#{customerCtr.customer.birthdate}" />
+				
+
+				<p:outputLabel for="txt3" value="balance " />
+				<p:inputText id="txt3" value="#{customerCtr.customer.balance}"
+					required="true" />
+				<p:message for="txt3" />
+                <h:outputText value="#{customerCtr.customer.balance}" />
+				
+
+				<p:outputLabel for="txt4" value="age " />
+				<p:inputText id="txt4" value="#{customerCtr.customer.age}"
+					required="true" />
+				<p:message for="txt4" />
+                <h:outputText value="#{customerCtr.customer.age}" />
+
+				<p:outputLabel for="txt5" value="Active " />
+				<p:selectBooleanCheckbox  id="txt5" value="#{customerCtr.customer.isActive}" />
+                <p:message for="txt5" />
+                <h:outputText value="#{customerCtr.customer.isActive}" />
+                
+                
+                <p:outputLabel for="txt6" value="Country: " />
+				<p:inputText id="txt6" value="#{customerCtr.customer.country}"
+					 />
+				<p:message for="txt6" />
+                <h:outputText value="#{customerCtr.customer.country}" />
+                
+                <p:outputLabel for="txt7" value="Postal Code: " />
+				<p:inputText id="txt7" value="#{customerCtr.customer.postalcode}"
+					 />
+				<p:message for="txt7" />
+                <h:outputText value="#{customerCtr.customer.postalcode}" />
+
+				<p:commandButton value="Ajax Submit" id="ajax"
+					actionListener="#{customerCtr.saveData()}" update="customers"  process="@form"/>
+
+ <!-- <p:commandButton value="Ajax Submit" id="ajax" update="customers" actionListener="#{buttonView.buttonAction}" styleClass="ui-priority-primary" />
+  -->
+
+			</h:panelGrid>
+		</p:panel>
+	</h:form>
+
+	<p:dataTable id="customers" var="cs" value="#{customerCtr.customers}">
+		<p:column headerText="ID">
+			<h:outputText value="#{cs.id}" />
+		</p:column>
+
+		<p:column headerText="Name">
+			<h:outputText value="#{cs.name}" />
+		</p:column>
+
+		<p:column headerText="birthdate">
+			<h:outputText value="#{cs.birthdate}" />
+		</p:column>
+
+		<p:column headerText="balance">
+			<h:outputText value="#{cs.balance}" />
+		</p:column>
+
+		<p:column headerText="age">
+			<h:outputText value="#{cs.age}" />
+		</p:column>
+
+		<p:column headerText="isActive">
+			<h:outputText value="#{cs.isActive}" />
+		</p:column>
+		
+		<p:column headerText="country">
+			<h:outputText value="#{cs.country}" />
+		</p:column>
+		
+		<p:column headerText="postalcode">
+			<h:outputText value="#{cs.postalcode}" />
+		</p:column>
+
+
+	</p:dataTable>
+
+
+</h:body>
+</html>
