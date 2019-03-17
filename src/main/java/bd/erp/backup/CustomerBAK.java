@@ -12,7 +12,7 @@ import java.util.Date;
  */
 @Entity
 @NamedQuery(name="Customer.findAll", query="SELECT c FROM Customer c")
-public class Customer implements Serializable {
+public class CustomerBAK implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -33,7 +33,7 @@ public class Customer implements Serializable {
 
 	private int postalcode;
 
-	public Customer() {
+	public CustomerBAK() {
 	}
 
 	public int getId() {
